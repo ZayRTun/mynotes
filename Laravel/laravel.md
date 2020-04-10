@@ -59,11 +59,28 @@ Route::get('/articles/{article}/edit', 'ArticleController@edit');
 Route::put('/articles/{article}', 'ArticleController@update')
 ```
 
+## Named Routes
+```php
+Route::get('article/{article}', 'ArticleController@show')->name('articles.show');
 
+<a href="{{ route('articles.show', $article->id) }}">Articles</a>
+// or pass the article it self
+<a href="{{ route('articles.show', $article) }}">Articles</a>
 
+// or define a path() method in the Model class
+public function path()
+{
+    return route('articles.show', $this);
+}
+// then in controller, redirect using this method
+return redirect($article->path());
 
+// also
+<a href="{{ $article->path() }}">Articles</a>
+```
+---
 
-### Create and  Update
+# Validate Create & Update
 **Validation**
 ```php
 request()->validate([
@@ -109,36 +126,17 @@ $article->update(request()->validate([
         <p class="is-invalid text-danger">{{ $errors->first('title') }}</p>
     @enderror
 
-    // geting the original value
+    // getting the original value
     <input class="@error('title') is-invalid @enderror form-control" type="text" id="title" name="title"
                     value="{{ old('title') }}">
 </div>
 ```
 
-**Mass assignmet**
+**Mass assignment setting in Class**
 ```php
 protected $fillable = ['title', 'excerpt', 'body'];
 // change to
 protected $guarded = [];
 ```
 
-## Named Routes
-```php
-Route::get('article/{article}', 'ArticleController@show')->name('articles.show');
-
-<a href="{{ route('articles.show', $article->id) }}">Articles</a>
-// or pass the article it self
-<a href="{{ route('articles.show', $article) }}">Articles</a>
-
-// or define a path() method in the Model class
-public function path()
-{
-    return route('articles.show', $this);
-}
-// then in controller, redirt using this method
-return redirect($article->path());
-
-// also
-<a href="{{ $article->path() }}">Articles</a>
-```
 

@@ -22,13 +22,16 @@
 - [Sessions](Python/Sessions.md)
 
 ## LARAVEL
-- [Laravel](Laravel/laravel.md)
+- [Laravel Route & Validation](Laravel/laravel.md)
 - [Laravel Eloquent](Laravel/eloquent.md)
 - [Laravel Authentication](Laravel/authentication.md)
 - [Laravel CoreConcept](Laravel/collections.md)
   - [Collections](Laravel/collections.md)
   - [CSRF Attacks](Laravel/csrf.md)
   - [Service Container](Laravel/serviceContainer.md)
+  - [Laravel Facades](Laravel/facades.md)
+  - [Laravel Service Providers](Laravel/serviceProvider.md)
+- [Laravel Mail](Laravel/sendRawMail.md)
 
 
 ## SQL
@@ -41,3 +44,4 @@
 
 ## miscellaneous(Misc/miscellaneous.md)
 - [Miscellaneous](Misc/miscellaneous.md)
+- [Installing Nodejs & NPM](Misc/installingNodejs.md)
